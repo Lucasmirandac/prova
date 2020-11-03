@@ -1,0 +1,39 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Inversor de Frequencia",
+      "price": 2250.5,
+      "stock": 1,
+      "description": "Inversor de frequencia 5CV, 220V",
+      "manufacturer": "WEG",
+      "aquisition_date": "10-10-2020"
+    },
+    {
+      "name": "Contator",
+      "price": "250",
+      "stock": "2",
+      "description": "Contator tripolar 25A, 220V, 3NF + 1NA",
+      "manufacturer": "WEG",
+      "aquisition_date": "02/11/2020",
+      "id": 2
+    },
+    {
+      "name": "Soft Starter",
+      "price": "975.61",
+      "stock": "7",
+      "description": "Soft Starter , 900A, 220-575V",
+      "manufacturer": "WEG",
+      "aquisition_date": "08/03/2020",
+      "id": 3
+    }
+  ],
+  "fabricante": [
+    {
+      "id_fabricante": 1,
+      "nome": "WEG",
+      "CNPJ": 14309992000148,
+      "data_compra": "10-10-2020"
+    }
+  ]
+}
