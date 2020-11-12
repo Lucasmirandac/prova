@@ -7,6 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppRoutingModule = void 0;
+var auth_guard_1 = require("./guards/auth.guard");
+var manufacturer_crud_component_1 = require("./views/manufacturer-crud/manufacturer-crud.component");
+var manufacturer_create_component_1 = require("./components/manufacturer/manufacturer-create/manufacturer-create.component");
+var login_component_1 = require("./views/login/login.component");
+var product_update_component_1 = require("./components/product/product-update/product-update.component");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var home_component_1 = require("./views/home/home.component");
@@ -14,15 +19,33 @@ var product_crud_component_1 = require("./views/product-crud/product-crud.compon
 var product_create_component_1 = require("./components/product/product-create/product-create.component");
 var routes = [{
         path: '',
-        component: home_component_1.HomeComponent
+        component: home_component_1.HomeComponent,
+        canActivate: [auth_guard_1.AuthGuard]
     }, {
         path: 'products',
-        component: product_crud_component_1.ProductCrudComponent
+        component: product_crud_component_1.ProductCrudComponent,
+        canActivate: [auth_guard_1.AuthGuard]
+    }, {
+        path: 'manufacturers/create',
+        component: manufacturer_create_component_1.ManufacturerCreateComponent,
+        canActivate: [auth_guard_1.AuthGuard]
+    }, {
+        path: 'manufacturers',
+        component: manufacturer_crud_component_1.ManufacturerCrudComponent,
+        canActivate: [auth_guard_1.AuthGuard]
+    }, {
+        path: 'login',
+        component: login_component_1.LoginComponent
     },
     {
         path: "products/create",
-        component: product_create_component_1.ProductCreateComponent
-    }
+        component: product_create_component_1.ProductCreateComponent,
+        canActivate: [auth_guard_1.AuthGuard]
+    },
+    {
+        path: "products/update/:id",
+        component: product_update_component_1.ProductUpdateComponent
+    },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

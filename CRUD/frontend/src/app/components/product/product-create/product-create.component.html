@@ -15,18 +15,22 @@
             <input matInput placeholder="Preço (R$)"
             [(ngModel)]="product.price" name='price'>
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput placeholder="Fabricante"
-            [(ngModel)]="product.manufacturer" name='manufacturer'>
+            <mat-label>Fabricante</mat-label>
+            <mat-select [(ngModel)]="product.manufacturer" name='manufacturer'>
+                <mat-option value="WEG">WEG</mat-option>
+                <mat-option value="Schneider">Schneider</mat-option>
+                <mat-option value="ABB">ABB</mat-option>
+            </mat-select>
+            
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Estoque"
-            [(ngModel)]="product.stock" name='stock'>
-        </mat-form-field>
+
         <mat-form-field>
             <input matInput placeholder="Data da Compra"
             [(ngModel)]="product.aquisition_date" name='aquisition_date'>
         </mat-form-field>
+        <mat-checkbox>Favorito!</mat-checkbox>
     </form>
 </mat-card>
 

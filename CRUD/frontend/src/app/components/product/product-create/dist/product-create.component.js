@@ -15,9 +15,9 @@ var ProductCreateComponent = /** @class */ (function () {
         this.product = {
             name: '',
             price: null,
-            stock: 1,
             description: '',
-            manufacturer: ''
+            manufacturer: '',
+            favorite: false
         };
     }
     ProductCreateComponent.prototype.ngOnInit = function () {

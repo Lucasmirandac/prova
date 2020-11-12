@@ -1,5 +1,8 @@
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './views/login/auth.service';
+import { LoginComponent } from './views/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,11 +16,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { NavComponent } from './components/template/nav/nav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {HttpClientModule } from '@angular/common/http';
 import {FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from'@angular/material/form-field';
@@ -27,6 +29,15 @@ import { ProductRead2Component } from './components/product/product-read2/produc
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {MatCheckboxModule, MAT_CHECKBOX_DEFAULT_OPTIONS} from '@angular/material/checkbox';
+
+import localePt from '@angular/common/locales/pt'
+import {registerLocaleData} from '@angular/common';
+import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
+import {MatSelectModule} from '@angular/material/select';
+import { ManufacturerCreateComponent } from './components/manufacturer/manufacturer-create/manufacturer-create.component';
+import { ManufacturerCrudComponent } from './views/manufacturer-crud/manufacturer-crud.component';
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -38,7 +49,10 @@ import { MatSortModule } from '@angular/material/sort';
     ProductCrudComponent,
     ProductCreateComponent,
     ProductReadComponent,
-    ProductRead2Component
+    ProductRead2Component,
+    ProductUpdateComponent,
+    ManufacturerCreateComponent,
+    ManufacturerCrudComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +60,7 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatSelectModule,
     MatListModule,
     MatCardModule,
     MatButtonModule,
@@ -56,9 +71,19 @@ import { MatSortModule } from '@angular/material/sort';
     MatFormFieldModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCheckboxModule,
+    FlexLayoutModule,
   ],
-  providers: [],
+  
+  providers: [
+    AuthService, AuthGuard,
+    
+    {provide: LOCALE_ID,
+    useValue: 'pt-BR'},
+
+  {provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: 'check'},
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

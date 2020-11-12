@@ -11,6 +11,7 @@ var core_1 = require("@angular/core");
 var ProductReadComponent = /** @class */ (function () {
     function ProductReadComponent(ProductService) {
         this.ProductService = ProductService;
+        this.displayedColumns = ['id', 'name', 'description', 'manufacturer', 'price', 'action'];
     }
     ProductReadComponent.prototype.ngOnInit = function () {
         var _this = this;

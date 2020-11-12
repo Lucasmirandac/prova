@@ -2,6 +2,7 @@ import { Product } from './../product.model';
 import { ProductService } from './../../../components/product/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-product-create',
@@ -13,10 +14,11 @@ export class ProductCreateComponent implements OnInit {
   product: Product = {
     name: '',
     price: null,
-    stock: 1,
     description: '',
-    manufacturer: ''
+    manufacturer: '',
+    favorite: false
   }
+  
   constructor(private ProductService: ProductService,
     private router:Router) { }
 
@@ -33,4 +35,5 @@ export class ProductCreateComponent implements OnInit {
   cancel():void{
     this.router.navigate(['/products'])
   }
+
 }

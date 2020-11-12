@@ -12,7 +12,7 @@ var ProductService = /** @class */ (function () {
     function ProductService(snackBar, http) {
         this.snackBar = snackBar;
         this.http = http;
-        this.baseUrl = "http://localhost:3001/product";
+        this.baseUrl = "http://localhost:3001/products";
     }
     ProductService.prototype.showMessage = function (msg) {
         this.snackBar.open(msg, 'X', {
@@ -26,6 +26,18 @@ var ProductService = /** @class */ (function () {
     };
     ProductService.prototype.read = function () {
         return this.http.get(this.baseUrl);
+    };
+    ProductService.prototype.readById = function (id) {
+        var url = this.baseUrl + "/" + id + "}";
+        return this.http.get(url);
+    };
+    ProductService.prototype.update = function (product) {
+        var url = this.baseUrl + "/" + product.id + "}";
+        return this.http.put(url, product);
+    };
+    ProductService.prototype["delete"] = function (id) {
+        var url = this.baseUrl + "/" + id;
+        return this.http["delete"](url);
     };
     ProductService = __decorate([
         core_1.Injectable({
